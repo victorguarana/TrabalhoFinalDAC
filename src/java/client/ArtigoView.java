@@ -81,14 +81,16 @@ public class ArtigoView extends HttpServlet {
                     + "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\">"
                     + "</head>");
             
-            out.println("<body>");
+            out.println("<body style=\"background: rgb(0 123 255 / 25%);\" >");
             
             out.println("<div style=\""
                         + "    padding-left: 15%;"
                         + "    padding-right: 15%;"
+                        + "    padding-bottom: 1%;"
                         + "    padding-top: 1%;\">");
             out.println("<div style= \"box-shadow: 0px 0px 10px grey;"
-                    + "padding: 10px 10px 10px 11px;\">");
+                    + "padding: 10px 10px 10px 10px;"
+                    + "background: white\">");
             
             out.println("<a class=\"btn btn-primary\" href=\"Home\"><i class=\"bi bi-house\"> Página inicial</i></a>");
             out.println("<a class=\"btn btn-primary\" href=\"Volume?id=" + volume_id + "\"><i class=\"bi bi-back\"> Voltar</i></a>");
@@ -111,7 +113,7 @@ public class ArtigoView extends HttpServlet {
                     "  <dt class=\"col-sm-3\">Palavra Chave (Em inglês)</dt>" +
                     "  <dd class=\"col-sm-9\">" + artigo.getPalavrasChaveEn()+ "</dd>"
                     + "</dl>");
-            out.println("<a class=\"btn btn-info\"><i class=\"bi bi-pencil-square\"> Editar Artigo</i></a>");
+            out.println("<a class=\"btn btn-warning\"><i class=\"bi bi-pencil-square\"> Editar Artigo</i></a>");
                
             out.println("<br><br><br><br>");
 
@@ -151,7 +153,7 @@ public class ArtigoView extends HttpServlet {
             }
             out.println("</tbody>");
             out.println("</table>");
-            out.println("<a class=\"btn btn-info\"><i class=\"bi bi-plus-square\"> Adicionar Autor</i></a>");
+            out.println("<a class=\"btn btn-warning\"><i class=\"bi bi-plus-square\"> Adicionar Autor</i></a>");
             out.println("</div>");
             out.println("</div>");
             out.println("</body>");

@@ -57,16 +57,16 @@ public class Home extends HttpServlet {
                     + "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\">"
                     + "</head>");
             
-            out.println("<body>");
-            
-
+            out.println("<body style=\"background: rgb(0 123 255 / 25%);\" >");
             
             out.println("<div style=\""
                         + "    padding-left: 15%;"
                         + "    padding-right: 15%;"
+                        + "    padding-bottom: 1%;"
                         + "    padding-top: 1%;\">");
             out.println("<div style= \"box-shadow: 0px 0px 10px grey;"
-                    + "padding: 10px 10px 10px 11px;\">");
+                    + "padding: 10px 10px 10px 10px;"
+                    + "background: white\">");
             
             out.println("<h1>Todos os Volumes Disponíveis:</h1>");
             out.println("<table class=\"table\">"
@@ -106,7 +106,7 @@ public class Home extends HttpServlet {
             }
             out.println("</tbody>");
             out.println("</table>");
-            out.println("<a class=\"btn btn-info\"><i class=\"bi bi-plus-square\"> Adicionar Volume</i></a>");
+            out.println("<a class=\"btn btn-warning\"><i class=\"bi bi-plus-square\"> Adicionar Volume</i></a>");
             out.println("</div>");
             out.println("</div>");
             out.println("</body>");
