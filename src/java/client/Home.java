@@ -106,6 +106,7 @@ public class Home extends HttpServlet {
             }
             out.println("</tbody>");
             out.println("</table>");
+            out.println("<a class=\"btn btn-info\"><i class=\"bi bi-plus-square\"> Adicionar Volume</i></a>");
             out.println("</div>");
             out.println("</div>");
             out.println("</body>");
