@@ -2,19 +2,12 @@ package model;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
+@XmlRootElement
 public class Artigo implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int ordem_volume;
     private String idioma;
@@ -24,9 +17,7 @@ public class Artigo implements Serializable {
     private String resumo_en;
     private String palavras_chave;
     private String palavras_chave_en;
-    @ManyToOne
     private Volume volume;
-    @OneToMany(mappedBy = "id_artigo")
     private List<Autor> lista_autores;
     public Long getId() {
         return id;
