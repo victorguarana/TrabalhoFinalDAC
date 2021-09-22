@@ -130,20 +130,16 @@ public class VolumeView extends HttpServlet {
                         while (artigo_interator.hasNext()) {
                 Artigo aux = artigo_interator.next();
                 String link_artigo = "Artigo?id=" + aux.getId() + "&volume=" + volume_id;
-                String link_excluir = "Home?id="+aux.getId();
+                String link_excluir = "Delete?volume="+ volume_id + "&artigo=" + aux.getId();
 
                 //String link = base+"?id="+aux.getId();
                 //out.println("<li><a href=\"" + link + "\">" + aux.getSobrenome() + ", " + aux.getNome() + "</a></li>");
                 out.println("<tr>"
                                 + "<th scope=\"row\"><a href=\"" + link_artigo + "\">" + aux.getTitulo()+ "</a></th>"
-                                /*+ "<th> "
-                                        + "<a class=\"btn btn-info\"><i class=\"bi bi-pencil-square\"> Editar</i></a>"
-                                + " </th>"*/
                                 + "<th> "
-                                        + "<form method=\"post\" action=" + link_excluir + ">"
-                                            + "<button class=\"btn btn-danger\" onclick=\"return confirm('Confirmar exclusão do artigo: " + aux.getTitulo() + "? Todos os autores relacionados a este artigo serão excluidos também.')\">"
-                                                + "<i class=\"bi bi-trash\"> Excluir</i>"
-                                        + "</button></form>"
+                                    + "<a class=\"btn btn-danger\" href=\"" + link_excluir + "\">"
+                                        + "<i class=\"bi bi-trash\"> Excluir</i>"
+                                    + "</a>"
                                 + " </th>"
 
                             + "</tr>" );

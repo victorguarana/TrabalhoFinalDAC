@@ -133,7 +133,8 @@ public class ArtigoView extends HttpServlet {
                         while (autor_interator.hasNext()) {
                 Autor aux = autor_interator.next();
                 String link_autor = "Autor?id=" + aux.getId();
-                String link_excluir = "Home?id="+aux.getId();
+                String link_excluir = "Delete?artigo="+ artigo_id + "&autor=" + aux.getId();
+
 
                 //String link = base+"?id="+aux.getId();
                 //out.println("<li><a href=\"" + link + "\">" + aux.getSobrenome() + ", " + aux.getNome() + "</a></li>");

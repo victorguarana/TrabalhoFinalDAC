@@ -86,20 +86,16 @@ public class Home extends HttpServlet {
                         while (volume_interator.hasNext()) {
                 Volume aux = volume_interator.next();
                 String link_volume = "Volume?id=" + aux.getId();
-                String link_excluir = "Home?id="+aux.getId();
+                String link_excluir = "Delete?volume="+aux.getId();
 
                 out.println("<tr>"
                                 + "<th scope=\"row\"><a href=\"" + link_volume + "\">" + aux.getSigla()+ "</a></th>"
                                 + "<th>" + aux.getEdicao()+ "º</th>"
                                 + "<th>" + aux.getDataInicio()+ "</th>"
-                                /*+ "<th> "
-                                        + "<a class=\"btn btn-info\"><i class=\"bi bi-pencil-square\"> Editar</i></a>"
-                                + " </th>"*/
                                 + "<th> "
-                                        + "<form method=\"post\" action=" + link_excluir + ">"
-                                            + "<button class=\"btn btn-danger\" onclick=\"return confirm('Confirmar exclusão do volume: " + aux.getSigla() + "? Todos os artigos e autores relacionados a este volume serão exlcuidos também.')\">"
-                                                + "<i class=\"bi bi-trash\"> Excluir</i>"
-                                        + "</button></form>"
+                                    + "<a class=\"btn btn-danger\" href=\"" + link_excluir + "\">"
+                                        + "<i class=\"bi bi-trash\"> Excluir</i>"
+                                    + "</a>"
                                 + " </th>"
 
                             + "</tr>" );
