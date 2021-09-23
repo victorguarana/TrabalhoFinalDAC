@@ -79,18 +79,13 @@ public class VolumeView extends HttpServlet {
                     + "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">"
                     + "<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script>"
                     + "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css\">"
+                    + "<link rel=\"stylesheet\" href=\"assets/css/comum.css\">"
                     + "</head>");
             
-            out.println("<body style=\"background: rgb(0 123 255 / 25%);\" >");
+            out.println("<body>");
             
-            out.println("<div style=\""
-                        + "    padding-left: 15%;"
-                        + "    padding-right: 15%;"
-                        + "    padding-bottom: 1%;"
-                        + "    padding-top: 1%;\">");
-            out.println("<div style= \"box-shadow: 0px 0px 10px grey;"
-                    + "padding: 10px 10px 10px 10px;"
-                    + "background: white\">");
+            out.println("<div class=\"card_outter\">");
+            out.println("<div class=\"card_inner\">");
             
             out.println("<a class=\"btn btn-primary\" href=\"Home\"><i class=\"bi bi-house\"> Página inicial</i></a>");
             out.println("<br><br>");
@@ -146,7 +141,7 @@ public class VolumeView extends HttpServlet {
             }
             out.println("</tbody>");
             out.println("</table>");
-            out.println("<a class=\"btn btn-warning\"><i class=\"bi bi-plus-square\"> Adicionar Artigo</i></a>");
+            out.println("<a href=\"FormArtigo.jsp?volume=" + volume_id + "\" class=\"btn btn-warning\"><i class=\"bi bi-plus-square\"> Adicionar Artigo</i></a>");
             out.println("</div>");
             out.println("</div>");
             out.println("</body>");

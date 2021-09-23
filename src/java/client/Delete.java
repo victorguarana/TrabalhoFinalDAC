@@ -62,15 +62,15 @@ public class Delete extends HttpServlet {
         }
 
         //Deleta Artigo
-        if (volume != null && artigo != null){
+        if (volume != null && artigo != null && autor == null){
             path = "volume/" + volume + "/artigo/" + artigo;
             back = "Volume?id=" + volume;
         }
         
         //Deleta Autor
-        if (artigo != null && autor != null){
+        if (volume != null && artigo != null && autor != null){
             path = "artigo/" + artigo + "/autor/" + autor;
-            back = "Artigo?id=" + artigo;
+            back = "Artigo?id=" + artigo + "&volume=" + volume;
         }
 
         //Caso tenha erro com o caminho

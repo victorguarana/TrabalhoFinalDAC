@@ -1,0 +1,21 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template/shop-homepage)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+body {
+  background: rgb(0 123 255 / 25%);
+}
+
+.card_inner{
+    box-shadow: 0px 0px 10px grey;
+    padding: 10px 10px 10px 10px;
+    background: white;
+}
+
+.card_outter{
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+}
