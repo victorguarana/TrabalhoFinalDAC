@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
@@ -38,7 +39,8 @@ public class VolumeView extends HttpServlet {
         
         Volume volume = null;
         int status;
-        
+        HttpSession session = request.getSession();
+
                 
         try (PrintWriter out = response.getWriter()) {
 
@@ -54,6 +56,7 @@ public class VolumeView extends HttpServlet {
                 Response resposta = call.invoke();
                 status = resposta.getStatus();
                 volume = resposta.readEntity(Volume.class);
+                session.setAttribute("volume", volume);
             } catch (URISyntaxException ex) {
                 Logger.getLogger("").log(Level.SEVERE, null, ex);
             }
@@ -105,7 +108,7 @@ public class VolumeView extends HttpServlet {
                     "  <dt class=\"col-sm-3\">Descrição (Em inglês)</dt>" +
                     "  <dd class=\"col-sm-9\">" + volume.getDescricaoEn()+ "</dd>"
                     + "</dl>");
-            out.println("<a class=\"btn btn-warning\"><i class=\"bi bi-pencil-square\"> Editar Volume</i></a>");
+            out.println("<a href=\"FormVolume.jsp?id=" + volume_id + "\" class=\"btn btn-warning\"><i class=\"bi bi-pencil-square\"> Editar Volume</i></a>");
                
             out.println("<br><br><br><br>");
 

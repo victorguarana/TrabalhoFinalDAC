@@ -132,4 +132,14 @@ public class Artigo implements Serializable {
         return "persistence.ArtigoEntity[ id=" + id + " ]";
     }
     
+    public void empty(){
+        this.id = Long.parseLong("0");
+        this.idioma = "";
+        this.palavras_chave = "";
+        this.palavras_chave_en = "";
+        this.resumo = "";
+        this.resumo_en = "";
+        this.titulo = "";
+        this.titulo_en = "";
+    }
 }

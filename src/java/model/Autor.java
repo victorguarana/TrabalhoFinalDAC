@@ -134,4 +134,16 @@ public class Autor implements Serializable {
         return "persistence.AutorEntity[ id=" + id + " ]";
     }
     
+    public void empty() {
+        this.id = Long.parseLong("0");
+        this.afiliacao = "";
+        this.afiliacao_en = "";
+        this.nome_primeiro = "";
+        this.nome_meio = "";
+        this.nome_ultimo = "";
+        this.orcid = "";
+        this.pais = "";
+        this.email = "";
+    }
+    
 }

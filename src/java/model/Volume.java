@@ -105,9 +105,12 @@ public class Volume implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "persistence.VolumeEntity[ id=" + id + " ]";
+    public void empty(){
+        this.cidade = "";
+        this.sigla = "";
+        this.descricao = "";
+        this.descricao_en = "";
+        this.id = Long.parseLong("0");
     }
     
 }

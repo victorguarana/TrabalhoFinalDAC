@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
@@ -36,11 +37,10 @@ public class ArtigoView extends HttpServlet {
         List<Autor> autores = null;
         int artigo_id = Integer.parseInt(request.getParameter("id"));
         int volume_id = Integer.parseInt(request.getParameter("volume"));
-
         
         Artigo artigo = null;
-        int status;
-        
+        HttpSession session = request.getSession();
+
                 
         try (PrintWriter out = response.getWriter()) {
 
@@ -53,8 +53,8 @@ public class ArtigoView extends HttpServlet {
                 wt.request().accept("application/xml");
                 Invocation call = wt.request().buildGet();
                 Response resposta = call.invoke();
-                status = resposta.getStatus();
                 artigo = resposta.readEntity(Artigo.class);
+                session.setAttribute("artigo", artigo);
             } catch (URISyntaxException ex) {
                 Logger.getLogger("").log(Level.SEVERE, null, ex);
             }
@@ -67,7 +67,6 @@ public class ArtigoView extends HttpServlet {
                 wt.request().accept("application/xml");
                 Invocation call = wt.request().buildGet();
                 Response resposta = call.invoke();
-                status = resposta.getStatus();
                 autores = resposta.readEntity(new GenericType<List<Autor>>(){});
             } catch (URISyntaxException ex) {
                 Logger.getLogger(ArtigoView.class.getName()).log(Level.SEVERE, null, ex);
@@ -108,7 +107,7 @@ public class ArtigoView extends HttpServlet {
                     "  <dt class=\"col-sm-3\">Palavra Chave (Em inglês)</dt>" +
                     "  <dd class=\"col-sm-9\">" + artigo.getPalavrasChaveEn()+ "</dd>"
                     + "</dl>");
-            out.println("<a class=\"btn btn-warning\"><i class=\"bi bi-pencil-square\"> Editar Artigo</i></a>");
+            out.println("<a href=\"FormArtigo.jsp?id=" + artigo_id + "&volume=" + volume_id + "\" class=\"btn btn-warning\"><i class=\"bi bi-pencil-square\"> Editar Artigo</i></a>");
                
             out.println("<br><br><br><br>");
 

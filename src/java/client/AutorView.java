@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
@@ -40,7 +41,7 @@ public class AutorView extends HttpServlet {
         int volume_id = Integer.parseInt(request.getParameter("volume"));
 
         Autor autor = null;
-        int status;
+        HttpSession session = request.getSession();
         
                 
         try (PrintWriter out = response.getWriter()) {
@@ -54,8 +55,8 @@ public class AutorView extends HttpServlet {
                 wt.request().accept("application/xml");
                 Invocation call = wt.request().buildGet();
                 Response resposta = call.invoke();
-                status = resposta.getStatus();
                 autor = resposta.readEntity(Autor.class);
+                session.setAttribute("autor", autor);
             } catch (URISyntaxException ex) {
                 Logger.getLogger("").log(Level.SEVERE, null, ex);
             }
@@ -98,7 +99,7 @@ public class AutorView extends HttpServlet {
                     "  <dt class=\"col-sm-3\">Afiliação (Em inglês)</dt>" +
                     "  <dd class=\"col-sm-9\">" + autor.getAfiliacaoEn()+ "</dd>"
                     + "</dl>");
-            out.println("<a class=\"btn btn-warning\"><i class=\"bi bi-pencil-square\"> Editar Autor</i></a>");
+            out.println("<a href=\"FormAutor.jsp?id=" + autor_id + "&artigo=" + artigo_id + "&volume=" + volume_id + "\" class=\"btn btn-warning\"><i class=\"bi bi-pencil-square\"> Editar Autor</i></a>");
                
             out.println("</div>");
             out.println("</div>");
