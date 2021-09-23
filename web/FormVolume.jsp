@@ -61,8 +61,7 @@
                     </div>
                     
                     <input type="hidden" name="id" value="<%= volume.getId() %>">
-                    
-                    <input class="btn btn-success" type="submit" value="Salvar" onsubmit="return home();"/>
+                    <input class="btn btn-success" type="submit" value="Salvar" onclick="return home()"/>
                 </form>
             </div>
         </div>

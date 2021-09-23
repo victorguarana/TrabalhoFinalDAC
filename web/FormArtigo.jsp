@@ -83,6 +83,7 @@
         <script>
             document.getElementById("ordem_volume").value = <%= artigo.getOrdemVolume()%>
         </script>
+
         <script>
         function home() {
             <% if (request.getParameter("id") != null) { %>
